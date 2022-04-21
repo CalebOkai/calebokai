@@ -1,18 +1,116 @@
-import React from "react";
 import Styles from "./styles";
 
-import giticon from "../../assets/github.svg";
+import image from "../../assets/caleb.jpg";
+import { useCallback, useEffect, useState } from "react";
 
 
 const Dashboard = () => {
+  const [codeRef, setCodeRef] = useState<HTMLDivElement>();
+  const [codeMsg, setCodeMsg] = useState<string>("");
+  const [currWordIndex, setCurrWordIndex] = useState<number>(0);
+
+  const words: string[] = [
+    "I write code ...",
+    "Hire me ...",
+    "Hire me now!",
+    "Thanks for coming to my TED talk."
+  ]
+  const contacts = [
+    {
+      url: "mailto:info@calebokai.com",
+      text: "info@calebokai.com",
+    },
+    {
+      url: "https://www.linkedin.com/in/caleb-okai-b316021b7/",
+      text: "LinkedIn",
+    },
+    {
+      url: "https://github.com/CalebOkai",
+      text: "Github",
+    },
+  ]
+
+
+  const initCodeRef = useCallback((node) => {
+    if (node) setCodeRef(node)
+  }, [])
+
+  useEffect(() => {
+    if (!codeRef) return;
+    setTimeout(() =>
+      printltrs(words[currWordIndex]),
+      1000
+    )
+  }, [codeRef, currWordIndex])
+
+  const printltrs = (word: string, index = 0) => {
+    if (index < word.length) {
+      setCodeMsg(prev => prev + word[index]);
+      index += 1;
+      setTimeout(function () {
+        printltrs(word, index)
+      }, 50);
+    } else {
+      setTimeout(function () {
+        delLtrs(word)
+      }, 1000);
+    }
+  }
+  const delLtrs = (word: string) => {
+    word = word.slice(0, -1);
+    if (word) {
+      setCodeMsg(word);
+      setTimeout(function () {
+        delLtrs(word)
+      }, 20);
+    }
+    else {
+      word = "";
+      setCodeMsg(word);
+      if (currWordIndex < words.length - 1)
+        setCurrWordIndex(currWordIndex + 1)
+      else
+        setCurrWordIndex(0);
+    }
+  }
+
+
   return (
     <Styles>
-      <header>
+      <section id="Profile">
+        <div className="img-wrapper">
+          <img src={image} alt="" />
+        </div>
         <h1>Caleb Okai</h1>
-        <a href="https://github.com/CalebOkai">
-          <img src={giticon} alt="" />
-        </a>
-      </header>
+        <div className="sub-text">
+          <h3>Full Stack Developer</h3>
+          <div>@</div>
+          <h3>Redbird Inc</h3>
+        </div>
+      </section>
+
+      <section id="Code">
+        <div className="content" ref={initCodeRef} >
+          <span>{"$ "}</span>{codeMsg}
+        </div>
+        <div className="cursor" />
+      </section>
+
+      <section id="Contact">
+        <ol>
+          {contacts.map((contact, index) =>
+            <a
+              href={contact.url}
+              key={index}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              {contact.text}
+            </a>
+          )}
+        </ol>
+      </section>
+
     </Styles>
   )
 }

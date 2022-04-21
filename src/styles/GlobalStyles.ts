@@ -5,6 +5,7 @@ const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
     background-repeat: no-repeat;
+    font-weight: 400;
   }
   body {
     font-family: 'Poiret One', cursive;

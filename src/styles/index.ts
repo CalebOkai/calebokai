@@ -46,4 +46,49 @@ export const functions = {
 export const colors = {
   white: "#fff",
   black: "#000",
+
+  // Shades of Grey
+  grey1: "#7f7f7f",
+  grey2: "#adadad",
+  grey3: "#E0E0E0",
+  grey4: "#F6F6F6",
+  grey5: "#3e3e3e",
+  grey6: "#434343",
+  grey7: "#EFEFEF",
+  grey8: "#F9F9F9",
+  grey9: "#E3E3E3",
+
+  // Accents
+  terminal: "#00FF00",
+}
+
+
+export const snippets = {
+  // Position Absolute Centering
+  absoluteCenter: `
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  `,
+  // Display Flex Centering
+  flexCenter: `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  `,
+  scrollBar: `
+    ::-webkit-scrollbar {
+      width: 0.5rem;
+      height: 0.5rem;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: ${functions.rgba(colors.grey2, 0.5)};
+      border-radius: 10px;
+    }
+  `
 }
