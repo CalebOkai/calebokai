@@ -11,8 +11,8 @@ const Dashboard = () => {
 
   const words: string[] = [
     "I write code ...",
-    "Hire me ...",
-    "Hire me now!",
+    // "Hire me ...",
+    // "Hire me now!",
     "Thanks for coming to my TED talk."
   ]
   const contacts = [
