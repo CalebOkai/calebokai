@@ -85,7 +85,13 @@ const Dashboard = () => {
         <div className="sub-text">
           <h3>Full Stack Developer</h3>
           <div>@</div>
-          <h3>Redbird Inc</h3>
+          <a
+            href="https://redbird.co"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Redbird Inc
+          </a>
         </div>
       </section>
 

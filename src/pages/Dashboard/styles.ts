@@ -49,7 +49,11 @@ const Styles = styled.div`
     }
     .sub-text {
       color: ${colors.grey2};
-      font-size: 1rem;
+      font-size: 1.2rem;
+      a {
+        text-decoration: underline;
+        color: inherit;
+      }
     }
   }
 
