@@ -17,8 +17,8 @@ const Dashboard = () => {
   ]
   const contacts = [
     {
-      url: "mailto:info@calebokai.com",
-      text: "info@calebokai.com",
+      url: "mailto:caleb@okai.pro",
+      text: "caleb@okai.pro",
     },
     {
       url: "https://www.linkedin.com/in/caleb-okai-b316021b7/",
